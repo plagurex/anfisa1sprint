@@ -2,15 +2,27 @@
 <header>
   <img src="{% static 'img/logo.png' %}" height="50" alt="">
   <nav>
-    <ul>
-      <li>
-        <a href="{% url 'homepage:index' %}">Главная</a>  
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link
+          {% if request.resolver_match.view_name  == 'homepage:index' %}
+          active
+          {% endif %}"
+          href="{% url 'homepage:index' %}">Главная</a>  
       </li>
-      <li>
-        <a href="{% url 'ice_cream:ice_cream_list' %}">Каталог мороженого</a>       
+      <li class="nav-item">
+        <a class="nav-link
+          {% if request.resolver_match.view_name  == 'ice_cream:ice_cream_list' %}
+          active
+          {% endif %}"
+          href="{% url 'ice_cream:ice_cream_list' %}">Каталог мороженого</a>       
       </li>
-      <li>
-        <a href="{% url 'about:description' %}">О проекте</a>
+      <li class="nav-item">
+        <a class="nav-link
+          {% if request.resolver_match.view_name  == 'about:index' %}
+          active
+          {% endif %}"
+          href="{% url 'about:description' %}">О проекте</a>
       </li>
     </ul>
   </nav>
